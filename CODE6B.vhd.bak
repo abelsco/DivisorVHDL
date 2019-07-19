@@ -1,0 +1,32 @@
+LIBRARY ieee;
+USE ieee.std_logic_1164.all;
+
+ENTITY CODE6B IS
+	GENERIC(n: INTEGER := 2);
+	PORT(
+		clk_in: IN BIT;
+		clk_out: OUT BIT
+	);
+END CODE6B;
+
+ARCHITECTURE Codigo OF CODE6B IS
+BEGIN
+	PROCESS(clk_in)
+		VARIABLE contador: INTEGER n'RANGE;
+		VARIABLE borda: BIT := '0' ;
+	 BEGIN
+		contador := 0;
+	--	clk_out <= '0';
+	--	borda := '0';
+		IF(clk_in'EVENT AND clk_in = '1') THEN
+			contador := contador + 1;
+			IF(contador = n) THEN
+				clk_out <= NOT(borda);
+				contador := 0;
+				borda := NOT(borda);
+			END IF;
+		END IF;
+		
+	END PROCESS;
+END;
+		

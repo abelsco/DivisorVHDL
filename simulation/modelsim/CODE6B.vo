@@ -1,0 +1,269 @@
+// Copyright (C) 1991-2013 Altera Corporation
+// Your use of Altera Corporation's design tools, logic functions 
+// and other software and tools, and its AMPP partner logic 
+// functions, and any output files from any of the foregoing 
+// (including device programming or simulation files), and any 
+// associated documentation or information are expressly subject 
+// to the terms and conditions of the Altera Program License 
+// Subscription Agreement, Altera MegaCore Function License 
+// Agreement, or other applicable license agreement, including, 
+// without limitation, that your use is for the sole purpose of 
+// programming logic devices manufactured by Altera and sold by 
+// Altera or its authorized distributors.  Please refer to the 
+// applicable agreement for further details.
+
+// VENDOR "Altera"
+// PROGRAM "Quartus II 64-Bit"
+// VERSION "Version 13.0.0 Build 156 04/24/2013 SJ Web Edition"
+
+// DATE "04/25/2018 13:40:14"
+
+// 
+// Device: Altera EP4CE6F17C6 Package FBGA256
+// 
+
+// 
+// This Verilog file should be used for ModelSim-Altera (Verilog) only
+// 
+
+`timescale 1 ps/ 1 ps
+
+module CODE6B (
+	clk_in,
+	clk_out);
+input 	clk_in;
+output 	clk_out;
+
+wire gnd;
+wire vcc;
+wire unknown;
+
+assign gnd = 1'b0;
+assign vcc = 1'b1;
+assign unknown = 1'bx;
+
+tri1 devclrn;
+tri1 devpor;
+tri1 devoe;
+wire \clk_out~output_o ;
+wire \clk_in~input_o ;
+wire \contador[0]~0_combout ;
+wire \Add0~0_combout ;
+wire \Add0~1_combout ;
+wire \Mux0~0_combout ;
+wire \borda~0_combout ;
+wire \borda~1_combout ;
+wire \borda~q ;
+wire [3:0] contador;
+
+
+cycloneive_io_obuf \clk_out~output (
+	.i(\borda~q ),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\clk_out~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \clk_out~output .bus_hold = "false";
+defparam \clk_out~output .open_drain_output = "false";
+// synopsys translate_on
+
+cycloneive_io_ibuf \clk_in~input (
+	.i(clk_in),
+	.ibar(gnd),
+	.o(\clk_in~input_o ));
+// synopsys translate_off
+defparam \clk_in~input .bus_hold = "false";
+defparam \clk_in~input .simulate_z_as = "z";
+// synopsys translate_on
+
+cycloneive_lcell_comb \contador[0]~0 (
+// Equation(s):
+// \contador[0]~0_combout  = !contador[0]
+
+	.dataa(contador[0]),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(gnd),
+	.cin(gnd),
+	.combout(\contador[0]~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \contador[0]~0 .lut_mask = 16'h5555;
+defparam \contador[0]~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+dffeas \contador[0] (
+	.clk(\clk_in~input_o ),
+	.d(\contador[0]~0_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(contador[0]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \contador[0] .is_wysiwyg = "true";
+defparam \contador[0] .power_up = "low";
+// synopsys translate_on
+
+cycloneive_lcell_comb \Add0~0 (
+// Equation(s):
+// \Add0~0_combout  = contador[0] $ (contador[1])
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(contador[0]),
+	.datad(contador[1]),
+	.cin(gnd),
+	.combout(\Add0~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \Add0~0 .lut_mask = 16'h0FF0;
+defparam \Add0~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+dffeas \contador[1] (
+	.clk(\clk_in~input_o ),
+	.d(\Add0~0_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(contador[1]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \contador[1] .is_wysiwyg = "true";
+defparam \contador[1] .power_up = "low";
+// synopsys translate_on
+
+cycloneive_lcell_comb \Add0~1 (
+// Equation(s):
+// \Add0~1_combout  = contador[2] $ (((contador[0] & contador[1])))
+
+	.dataa(gnd),
+	.datab(contador[2]),
+	.datac(contador[0]),
+	.datad(contador[1]),
+	.cin(gnd),
+	.combout(\Add0~1_combout ),
+	.cout());
+// synopsys translate_off
+defparam \Add0~1 .lut_mask = 16'h3CCC;
+defparam \Add0~1 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+dffeas \contador[2] (
+	.clk(\clk_in~input_o ),
+	.d(\Add0~1_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(contador[2]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \contador[2] .is_wysiwyg = "true";
+defparam \contador[2] .power_up = "low";
+// synopsys translate_on
+
+cycloneive_lcell_comb \Mux0~0 (
+// Equation(s):
+// \Mux0~0_combout  = (contador[3] & (((!contador[1]) # (!contador[2])) # (!contador[0])))
+
+	.dataa(contador[3]),
+	.datab(contador[0]),
+	.datac(contador[2]),
+	.datad(contador[1]),
+	.cin(gnd),
+	.combout(\Mux0~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \Mux0~0 .lut_mask = 16'h2AAA;
+defparam \Mux0~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+dffeas \contador[3] (
+	.clk(\clk_in~input_o ),
+	.d(\Mux0~0_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(contador[3]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \contador[3] .is_wysiwyg = "true";
+defparam \contador[3] .power_up = "low";
+// synopsys translate_on
+
+cycloneive_lcell_comb \borda~0 (
+// Equation(s):
+// \borda~0_combout  = (contador[3]) # (!contador[2])
+
+	.dataa(contador[2]),
+	.datab(contador[3]),
+	.datac(gnd),
+	.datad(gnd),
+	.cin(gnd),
+	.combout(\borda~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \borda~0 .lut_mask = 16'hDDDD;
+defparam \borda~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+cycloneive_lcell_comb \borda~1 (
+// Equation(s):
+// \borda~1_combout  = \borda~q  $ (((contador[0] & (contador[1] & !\borda~0_combout ))))
+
+	.dataa(\borda~q ),
+	.datab(contador[0]),
+	.datac(contador[1]),
+	.datad(\borda~0_combout ),
+	.cin(gnd),
+	.combout(\borda~1_combout ),
+	.cout());
+// synopsys translate_off
+defparam \borda~1 .lut_mask = 16'hAA6A;
+defparam \borda~1 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+dffeas borda(
+	.clk(\clk_in~input_o ),
+	.d(\borda~1_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\borda~q ),
+	.prn(vcc));
+// synopsys translate_off
+defparam borda.is_wysiwyg = "true";
+defparam borda.power_up = "low";
+// synopsys translate_on
+
+assign clk_out = \clk_out~output_o ;
+
+endmodule

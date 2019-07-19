@@ -1,0 +1,85 @@
+m255
+K3
+13
+cModel Technology
+Z0 dC:\Users\aluno\Downloads\DIVISOR\simulation\qsim
+vCODE6B
+Z1 IWO7dFT`^z8HJ<7hePf8^n0
+Z2 VTMiZ2]P5:1DcPD^3kJDlB3
+Z3 dC:\Users\aluno\Downloads\DIVISOR\simulation\qsim
+Z4 w1524674414
+Z5 8CODE6B.vo
+Z6 FCODE6B.vo
+L0 31
+Z7 OV;L;10.1d;51
+r1
+31
+Z8 !s90 -work|work|CODE6B.vo|
+Z9 o-work work -O0
+Z10 n@c@o@d@e6@b
+!i10b 1
+Z11 !s100 >bVWD7P1nYa;_U=Nm^N340
+!s85 0
+Z12 !s108 1524674415.249000
+Z13 !s107 CODE6B.vo|
+!s101 -O0
+vCODE6B_vlg_check_tst
+!i10b 1
+Z14 !s100 ]8B`S;cV2U`J@YV3iIA3k1
+Z15 I6=7^a5]LP15E<a:O3NNOk3
+Z16 VZ399>S4RKke7bSOVJnh@72
+R3
+Z17 w1524674413
+Z18 8CODE6B.vt
+Z19 FCODE6B.vt
+L0 57
+R7
+r1
+!s85 0
+31
+Z20 !s108 1524674415.448000
+Z21 !s107 CODE6B.vt|
+Z22 !s90 -work|work|CODE6B.vt|
+!s101 -O0
+R9
+Z23 n@c@o@d@e6@b_vlg_check_tst
+vCODE6B_vlg_sample_tst
+!i10b 1
+Z24 !s100 @nammac>3o?7HX_]Bn]UQ0
+Z25 Ig?<PUKfSlakKCa@m]LlI>2
+Z26 VZaTUhkWXc[kdhA?6IQEX^2
+R3
+R17
+R18
+R19
+L0 29
+R7
+r1
+!s85 0
+31
+R20
+R21
+R22
+!s101 -O0
+R9
+Z27 n@c@o@d@e6@b_vlg_sample_tst
+vCODE6B_vlg_vec_tst
+!i10b 1
+Z28 !s100 kWN0kTL;INoT^N0W@CQ=j2
+Z29 IJh<ACS@[k`EM:@TABk;SF3
+Z30 VMFeVQDQ54[bF1U0W^kY5e2
+R3
+R17
+R18
+R19
+Z31 L0 152
+R7
+r1
+!s85 0
+31
+R20
+R21
+R22
+!s101 -O0
+R9
+Z32 n@c@o@d@e6@b_vlg_vec_tst
